@@ -16,13 +16,13 @@ export default function AddVehicleForm() {
         capacityKg: Number(form.capacityKg),
         tyres: Number(form.tyres),
       });
-      setMessage("✅ Vehicle added successfully!");
+      setMessage("Vehicle added successfully!");
       setTimeout(() => {
         setMessage("");
       }, 2000);
       setForm({ name: "", capacityKg: "", tyres: "" });
     } catch {
-      setMessage("❌ Error adding vehicle");
+      setMessage("Error adding vehicle");
     }
   };
 
@@ -58,7 +58,7 @@ export default function AddVehicleForm() {
       {message && (
         <p
           className={`message ${
-            message.startsWith("✅") ? "success" : "error"
+            message.includes("success") ? "success" : "error"
           }`}
         >
           {message}

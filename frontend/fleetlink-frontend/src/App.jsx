@@ -7,7 +7,7 @@ function App() {
   return (
     <BrowserRouter>
       <nav style={{ margin: "10px" }}>
-        <Link to="/add" style={{ marginRight: "10px" }}>
+        <Link to="/" style={{ marginRight: "10px" }}>
           Add Vehicle
         </Link>
         <Link to="/search" style={{ marginRight: "10px" }}>
@@ -16,7 +16,7 @@ function App() {
         <Link to="/bookings">View Bookings</Link>
       </nav>
       <Routes>
-        <Route path="/add" element={<AddVehicleForm />} />
+        <Route path="/" element={<AddVehicleForm />} />
         <Route path="/search" element={<SearchForm />} />
         <Route path="/bookings" element={<BookingList />} />
       </Routes>

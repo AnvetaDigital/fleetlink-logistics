@@ -21,13 +21,15 @@ export default function SearchForm() {
       const data = await searchAvailableVehicles(form);
       setVehicles(data);
       setMessage(
-        data.length ? "Available vehicles found" : "No vehicles available"
+        data.length
+          ? "Available vehicles found successfully."
+          : "No vehicles available"
       );
       setTimeout(() => {
         setMessage("");
       }, 2000);
     } catch {
-      setMessage("❌ Error fetching availability");
+      setMessage("Error fetching availability");
     }
   };
 
@@ -40,12 +42,12 @@ export default function SearchForm() {
         startTime: form.startTime,
         customerId: "customer123", // hardcoded for now
       });
-      setMessage("✅ Booking successful!");
+      setMessage("Booking successful!");
       setTimeout(() => {
         setMessage("");
       }, 2000);
     } catch {
-      setMessage("❌ Booking failed, vehicle may be unavailable");
+      setMessage("Booking failed, vehicle may be unavailable");
     }
   };
 
@@ -107,7 +109,7 @@ export default function SearchForm() {
       {message && (
         <p
           className={`message ${
-            message.startsWith("✅") ? "success" : "error"
+            message.includes("success") ? "success" : "error"
           }`}
         >
           {message}

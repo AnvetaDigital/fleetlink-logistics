@@ -10,7 +10,7 @@ export default function BookingList() {
       const data = await getBookings();
       setBookings(data);
     } catch {
-      setMessage("❌ Error fetching bookings");
+      setMessage("Error fetching bookings");
     }
   };
 
@@ -21,13 +21,13 @@ export default function BookingList() {
   const handleCancel = async (id) => {
     try {
       await deleteBooking(id);
-      setMessage("✅ Booking cancelled");
+      setMessage("Booking cancelled");
       setTimeout(() => {
         setMessage("");
       }, 2000);
       fetchBookings();
     } catch {
-      setMessage("❌ Error cancelling booking");
+      setMessage("Error cancelling booking");
     }
   };
 
@@ -49,7 +49,7 @@ export default function BookingList() {
       {message && (
         <p
           className={`message ${
-            message.startsWith("✅") ? "success" : "error"
+            message.includes("success") ? "success" : "error"
           }`}
         >
           {message}
