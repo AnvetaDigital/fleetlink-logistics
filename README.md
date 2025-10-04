@@ -13,42 +13,61 @@ It provides APIs for vehicle management, availability checks, and bookings, alon
   - Desired start time
 - View available vehicles with estimated ride duration.
 - Book a vehicle (with conflict validation).
-- Backend unit tests (Jest).
 
 ---
 
 ## 🛠️ Tech Stack
-- **Backend:** Node.js, Express, MongoDB, Mongoose
-- **Frontend:** ReactJS
-- **Testing:** Jest, Supertest
-- **Others:** Docker
+- **Backend:** Node.js, Express, MongoDB, Mongoose, CORS, dotenv 
+- **Frontend:** ReactJS, React Router, CSS, Fetch API
+
+## Project Structure
+
+```plaintext
+fleetlink-logistics/
+├── backend/               
+│   └── src/
+│       ├── config/         # DB connection
+│       ├── models/         # Mongoose schemas
+│       ├── controllers/    # Business logic
+│       ├── routes/         # API routes
+│       └── server.js
+│
+└── frontend/
+ └── fleetlink-logistics            # React frontend
+    └── src/
+        ├── components/ 
+        |── api/
+        ├── App.jsx
+        └── main.jsx
+        └── index.css
 
 ---
 
-## ⚡ Installation & Setup
+## Setup Instructions
 
-### Backend
+### 1️⃣ Clone the repo
 ```bash
+git clone https://github.com/AnvetaDigital/fleetlink-logistics.git
+cd fleetlink-logistics
+
+2️⃣ Backend Setup
 cd backend
 npm install
-npm run dev
-```
 
-Create `.env` file in `backend/`:
-```
-MONGODB_URI=mongodb://127.0.0.1:27017/fleetlink
+Create .env file in /backend with the following:
+# Server Port
 PORT=5000
-```
 
-### Frontend
-```bash
-cd frontend
-npm install
+# MongoDB connection string (replace with your own cluster or local URI)
+MONGO_URI=mongodb+srv://<username>:<password>@cluster0.mongodb.net/fleetlink-logistics
+
+Run backend:
 npm start
-```
 
+3️⃣ Frontend Setup
+cd ../frontend
+npm install
+
+Run frontend:
+npm run dev
 ---
-
-## 👨‍💻 Author
-**Anveta Nangare**  
-
